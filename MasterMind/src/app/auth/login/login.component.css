@@ -1,0 +1,27 @@
+.btn-custom {
+    text-decoration: none;
+    color: #6c63ff; 
+
+  }
+
+  .content .btn {
+    height: 60px;
+    padding-left: 0;
+    padding-right: 50px !important;
+}
+
+
+
+.form-group.local-forms input[type="text"],
+.form-group.local-forms input[type="text"]:focus {
+  font-size: 14px; 
+  color: #7a7777;
+}
+
+.form-group.local-forms input[type="password"],
+.form-group.local-forms input[type="password"]:focus {
+  font-size: 14px; 
+  color: #7a7777;
+}
+
+

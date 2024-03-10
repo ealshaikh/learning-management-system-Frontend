@@ -1,0 +1,114 @@
+.nav-link:hover {
+  cursor: pointer;
+}
+
+.collapse-header:hover {
+  cursor: default; /* or specify a different cursor style if needed */
+}
+
+.collapse-item:hover {
+  cursor: pointer;
+}
+
+.bg-gradient-primary {
+  background-color: #5b76cb;
+  background-image: linear-gradient(58deg,#001c6d 10%,#224abe 100%);
+  background-size: cover;}
+
+  .nav-link:hover {
+    cursor: pointer;
+  }
+  
+  .collapse-header:hover {
+    cursor: default; /* or specify a different cursor style if needed */
+  }
+  
+  .collapse-item:hover {
+    cursor: pointer;
+  }
+  .bg-gradient-primary {
+    background-color: #5b76cb;
+    background-image: linear-gradient(58deg,#001c6d 10%,#224abe 100%);
+    background-size: cover;}
+
+    /* Add this CSS to your styles.css or styles.scss file */
+
+#wrapper {
+  display: flex;
+}
+
+#content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#content {
+  flex: 1;
+}
+
+.sidebar {
+  height: 100%;
+  min-height: 100vh;
+}
+
+/* Add this if you want to set a specific width for the sidebar */
+#accordionSidebar {
+  width: 220px;
+}
+
+/* Adjust the following styles if needed */
+.navbar-nav {
+  width: 100%;
+}
+
+.sidebar-brand {
+  height: 56px; /* Adjust the height based on your design */
+  line-height: 56px; /* Adjust the line height to vertically center the text */
+}
+
+.sidebar-divider {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.sidebar-heading {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.collapse-inner {
+  padding: 0.5rem 0;
+}
+
+/* Adjustments for the collapsed sidebar */
+#accordionSidebar.toggled {
+  width: 56px;
+}
+
+#accordionSidebar.toggled .sidebar-brand {
+  width: 56px;
+  text-align: center;
+}
+
+#accordionSidebar.toggled .sidebar-brand-text {
+  display: none;
+}
+
+#accordionSidebar.toggled .sidebar-divider {
+  width: 56px;
+}
+
+#accordionSidebar.toggled .collapse-inner {
+  padding: 0.5rem 0;
+}
+
+/* Add this style if you want to adjust the toggler icon position */
+#sidebarToggle {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

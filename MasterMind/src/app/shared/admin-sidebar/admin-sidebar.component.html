@@ -1,0 +1,130 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="/admin/index">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-book"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">MasterMind </div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link " routerLink="/admin/index">
+            <i class="fa fa-home"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        LMS
+    </div>
+
+
+
+<!-- Nav Item - Utilities Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link" (click)="togglePlansCollapse()">
+        <i class="fa fa-user"></i>
+        <span>Plans</span>
+    </a>
+    <div id="collapseTeachers" [ngClass]="{ 'show': isPlansCollapseVisible }" *ngIf="isPlansCollapseVisible" class="collapse">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Plan:</h6>
+            <div class="d-flex flex-column">
+                <a class="collapse-item" [routerLink]="['/admin/all-plans']">Plans List</a>
+                <a class="collapse-item" [routerLink]="['/admin/add-plan']">Add Plan</a>
+            </div>
+        </div>
+    </div>
+</li>
+
+<!-- Nav Item - Utilities Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link" (click)="toggleCoursesCollapse()">
+        <i class="fa fa-user"></i>
+        <span>Courses</span>
+    </a>
+    <div id="collapseTeachers" [ngClass]="{ 'show': isCoursesCollapseVisible }" *ngIf="isCoursesCollapseVisible" class="collapse">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Course:</h6>
+            <div class="d-flex flex-column">
+                <a class="collapse-item" [routerLink]="['/admin/all-courses']">Courses List</a>
+                <a class="collapse-item" [routerLink]="['/admin/add-course']">Add Course</a>
+            </div>
+        </div>
+    </div>
+</li>
+
+<!-- Nav Item - Utilities Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link" (click)="toggleSectionsCollapse()">
+        <i class="fa fa-user"></i>
+        <span>Sections</span>
+    </a>
+    <div id="collapseTeachers" [ngClass]="{ 'show': isSectionsCollapseVisible }" *ngIf="isSectionsCollapseVisible" class="collapse">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Section:</h6>
+            <div class="d-flex flex-column">
+                <a class="collapse-item" [routerLink]="['/admin/all-sections']">Sections List</a>
+                <a class="collapse-item" [routerLink]="['/admin/add-section']">Add Section</a>
+            </div>
+        </div>
+    </div>
+</li>
+
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Users Managing
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link" (click)="toggleStudentsCollapse()">
+        <i class="fa fa-graduation-cap"></i>
+        <span>Students</span>
+    </a>
+    <div id="collapseStudents" [ngClass]="{ 'show': isStudentsCollapseVisible }" *ngIf="isStudentsCollapseVisible" class="collapse">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Student:</h6>
+            <div class="d-flex flex-column">
+                <a class="collapse-item" [routerLink]="['/admin/all-students']">Student List</a>
+                <a class="collapse-item" [routerLink]="['/admin/add-student']">Add Student</a>
+                
+            </div>
+        </div>
+    </div>
+</li>
+
+<!-- Nav Item - Utilities Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link" (click)="toggleTeachersCollapse()">
+        <i class="fa fa-user"></i>
+        <span>Teachers</span>
+    </a>
+    <div id="collapseTeachers" [ngClass]="{ 'show': isTeachersCollapseVisible }" *ngIf="isTeachersCollapseVisible" class="collapse">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Teacher:</h6>
+            <div class="d-flex flex-column">
+                <a class="collapse-item" [routerLink]="['/admin/all-instructors']">Teachers List</a>
+                <a class="collapse-item" [routerLink]="['/admin/add-instructor']">Add Teacher</a>
+            </div>
+        </div>
+    </div>
+</li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+</ul>

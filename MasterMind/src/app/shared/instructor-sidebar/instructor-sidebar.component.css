@@ -1,0 +1,17 @@
+.nav-link:hover {
+    cursor: pointer;
+  }
+  
+  .collapse-header:hover {
+    cursor: default; /* or specify a different cursor style if needed */
+  }
+  
+  .collapse-item:hover {
+    cursor: pointer;
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(112deg, rgb(36, 67, 217) 5%, rgb(0 178 82) 100%);
+
+    background-size: cover;}
+

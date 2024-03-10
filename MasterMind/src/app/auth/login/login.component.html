@@ -1,0 +1,106 @@
+<app-header></app-header>
+
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img
+          src="../../../assets/loginTemp/images/undraw_remotely_2j6y.svg"
+          alt="Image"
+          class="img-fluid"
+        />
+      </div>
+      <div class="col-md-6 contents">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="btn-group" style="margin-right: 40px">
+              <a href="/administrator" class="btn btn-link btn-custom"
+                >Administrator</a
+              >
+              <a href="/instructor" class="btn btn-link btn-custom"
+                >Instructor</a
+              >
+              <a href="/student" class="btn btn-link btn-custom">Student</a>
+            </div>
+            <div class="mb-4">
+              <h3 style="font-weight: bold">Sign In</h3>
+              <p class="mb-4" style="color: #7a7777">
+                Join us on a journey to master the elements of modern technology
+                and propel your career to new heights.
+              </p>
+            </div>
+
+            <form [formGroup]="LoginForm">
+              <div class="row">
+                <div class="col-md-12 mb-0">
+                  <div class="form-group local-forms">
+                    <label></label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      formControlName="email"
+                      placeholder="Email Address"
+                    />
+                    <p
+                      style="color: red; font-size: 11px; margin-top: 12px"
+                      *ngIf="LoginForm.controls['email'].hasError('required')"
+                    >
+                      Email address is required
+                    </p>
+                    <p
+                      style="color: red; font-size: 11px; margin-top: 12px"
+                      *ngIf="LoginForm.controls['email'].hasError('email')"
+                    >
+                      Email address must contain @
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-md-12 mb-0">
+                  <div class="form-group local-forms">
+                    <label> </label>
+                    <input
+                      class="form-control"
+                      type="password"
+                      formControlName="password"
+                      placeholder="Password"
+                    />
+                    <p
+                      style="color: red; font-size: 11px; margin-top: 12px"
+                      *ngIf="
+                        LoginForm.controls['password'].hasError('required')
+                      "
+                    >
+                      Password is required
+                    </p>
+                    <p
+                      style="color: red; font-size: 11px"
+                      *ngIf="
+                        LoginForm.controls['password'].hasError('minlength')
+                      "
+                    >
+                      Password should be greater than 5 characters
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-md-12 mb-0">
+                  <div class="form-group local-forms" style="background: none">
+                    <button
+                      (click)=Login()
+                      type="submit"
+                      class="btn btn-primary btn-block"
+                      value="Create"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

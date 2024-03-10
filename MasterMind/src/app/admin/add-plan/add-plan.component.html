@@ -1,0 +1,216 @@
+<div id="wrapper">
+    <app-admin-sidebar></app-admin-sidebar>
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <app-admin-header></app-admin-header>
+  
+        <div class="row align-items-center">
+          <div class="col-sm-12">
+            <div class="col-sm-12">
+              <h3 style="font-size: 19px; margin-bottom: 20px">
+                Plans /Add Plan
+              </h3>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row" style="margin-top: 20px">
+          <div class="col-sm-12">
+            <div class="card comman-shadow">
+              <div class="card-body">
+                <form [formGroup]="CreatePlanForm">
+                  <div class="row">
+                    <div class="col-12" style="margin-bottom: 20px;">
+                      <h1 class="form-title student-info" >
+                        Plan Information
+                        <span
+                          ><a href="javascript:;"
+                            ><i class="feather-more-vertical"></i></a
+                        ></span>
+                      </h1>
+                    </div>
+  
+                    <div class="col-12 col-sm-4">
+                      <div class="form-group local-forms">
+                        <label
+                          >Plan Name</label
+                        >
+                        <input
+                          class="form-control"
+                          type="text"
+                          
+                          formControlName="planname"
+                        />
+                        <p
+                          style="color: red; font-size: 11px;"
+                          *ngIf="
+                            CreatePlanForm.controls['planname'].hasError(
+                              'required'
+                            )
+                          "
+                        >
+                          Plan name is required
+                        </p>
+  
+                        <p
+                          style="color: red; font-size: 11px;"
+                          *ngIf="
+                            CreatePlanForm.controls['planname'].hasError(
+                              'minlength'
+                            )
+                          "
+                        >
+                          Plan name should be great than 5
+                        </p>
+                      </div>
+                    </div>
+                  
+                    <div class="col-12 col-sm-4">
+                        <div class="form-group local-forms">
+                          <label
+                            >Plan Description</label
+                          >
+                          <input
+                            class="form-control"
+                            type="text"
+                            
+                            formControlName="plandescription"
+                          />
+                          <p
+                            style="color: red; font-size: 11px;"
+                            *ngIf="
+                              CreatePlanForm.controls['plandescription'].hasError(
+                                'required'
+                              )
+                            "
+                          >
+                            Plan Description is required
+                          </p>
+    
+                          <p
+                            style="color: red; font-size: 11px;"
+                            *ngIf="
+                              CreatePlanForm.controls['plandescription'].hasError(
+                                'minlength'
+                              )
+                            "
+                          >
+                            Plan Description should be great than 10
+                          </p>
+                        </div>
+                      </div>
+                    
+                    
+                      <div class="col-12 col-sm-4">
+                        <div class="form-group local-forms">
+                          <label
+                            >Plan Price</label
+                          >
+                          <input
+                            class="form-control"
+                            type="number"
+                            
+                            formControlName="planprice"
+                          />
+                          <p
+                            style="color: red; font-size: 11px;"
+                            *ngIf="
+                              CreatePlanForm.controls['planprice'].hasError(
+                                'required'
+                              )
+                            "
+                          >
+                            Plan Price is required
+                          </p>
+    
+                       
+                        </div>
+                      </div>
+                   
+                      <div class="col-12 col-sm-4">
+                        <div class="form-group local-forms">
+                          <label
+                            >Start Date</label
+                          >
+                          <input
+                            class="form-control"
+                            type="Date"
+                            
+                            formControlName="startdate"
+                          />
+                          <p
+                            style="color: red; font-size: 11px;"
+                            *ngIf="
+                              CreatePlanForm.controls['startdate'].hasError(
+                                'required'
+                              )
+                            "
+                          >
+                            Start Date is required
+                          </p>
+    
+                       
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-4">
+                        <div class="form-group local-forms">
+                          <label
+                            >Plan Price</label
+                          >
+                          <input
+                            class="form-control"
+                            type="date"
+                            
+                            formControlName="enddate"
+                          />
+                          <p
+                            style="color: red; font-size: 11px;"
+                            *ngIf="
+                              CreatePlanForm.controls['enddate'].hasError(
+                                'required'
+                              )
+                            "
+                          >
+                            End Date is required
+                          </p>
+    
+                       
+                        </div>
+                      </div>
+
+  
+                    <div class="col-12 col-sm-4">
+                      <div class="form-group students-up-files">
+                        <label>Cover Image Picture</label>
+                        <div class="uplod">
+                          <input type="file" (change)="UploadImage($event)" required/>
+                         
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="col-12">
+                      <div class="student-submit">
+                        <button
+                          type="submit"
+                          class="btn btn-primary"
+                          value="Create"
+                          (click)="CreatePlan()"
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

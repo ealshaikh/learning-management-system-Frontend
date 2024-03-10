@@ -1,0 +1,245 @@
+<div id="wrapper">
+    <app-admin-sidebar></app-admin-sidebar>
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <app-admin-header></app-admin-header>
+  
+        <div class="row align-items-center">
+          <div class="col-sm-12">
+            <div class="col-sm-12">
+              <h3 style="font-size: 19px; margin-bottom: 20px">
+                Students /Add Student
+              </h3>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row" style="margin-top: 20px">
+          <div class="col-sm-12">
+            <div class="card comman-shadow">
+              <div class="card-body">
+                <form [formGroup]="CreateStudentForm">
+                  <div class="row">
+                    <div class="col-12" style="margin-bottom: 20px;">
+                      <h1 class="form-title student-info" >
+                        Student Information
+                        <span
+                          ><a href="javascript:;"
+                            ><i class="feather-more-vertical"></i></a
+                        ></span>
+                      </h1>
+                    </div>
+  
+                    <div class="col-12 col-sm-4">
+                      <div class="form-group local-forms">
+                        <label
+                          >Student First Name <span class="login-danger">*</span></label
+                        >
+                        <input
+                          class="form-control"
+                          type="text"
+                          
+                          formControlName="studentfname"
+                        />
+                        <p
+                          style="color: red; font-size: 11px;"
+                          *ngIf="
+                            CreateStudentForm.controls['studentfname'].hasError(
+                              'required'
+                            )
+                          "
+                        >
+                          First name is required
+                        </p>
+  
+                        <p
+                          style="color: red; font-size: 11px;"
+                          *ngIf="
+                            CreateStudentForm.controls['studentfname'].hasError(
+                              'minlength'
+                            )
+                          "
+                        >
+                          First name should be great than 2
+                        </p>
+                      </div>
+                    </div>
+                  
+  
+                    <div class="col-12 col-sm-4">
+                      <div class="form-group local-forms">
+                        <label
+                          >Student Last Name <span class="login-danger">*</span></label
+                        >
+                        <input
+                          class="form-control"
+                          type="text"
+                          
+                          formControlName="studentlname"
+                        />
+                        <p
+                          style="color: red; font-size: 11px;"
+                          *ngIf="
+                            CreateStudentForm.controls['studentlname'].hasError(
+                              'required'
+                            )
+                          "
+                        >
+                          Last name is required
+                        </p>
+  
+                        <p
+                          style="color: red; font-size: 11px;"
+                          *ngIf="
+                            CreateStudentForm.controls['studentlname'].hasError(
+                              'minlength'
+                            )
+                          "
+                        >
+                          Last name should be great than 2
+                        </p>
+                      </div>
+                    </div>
+  
+                    <div class="col-12 col-sm-4">
+                      <div class="form-group local-forms">
+                        <label>Gender <span class="login-danger">*</span></label>
+                        <select
+                          class="form-control select"
+                          formControlName="gender"
+                        >
+                          <option>Select Gender</option>
+                          <option>Female</option>
+                          <option>Male</option>
+                        </select>
+                        <p
+                        style="color: red; font-size: 11px;"
+                        *ngIf="
+                          CreateStudentForm.controls['gender'].hasError(
+                            'required'
+                          )
+                        "
+                      >
+                      gender is required
+                      </p>
+  
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                      <div class="form-group local-forms calendar-icon">
+                        <label
+                          >Date Of Birth
+                          <span class="login-danger">*</span></label
+                        >
+                        <input
+                          class="form-control datetimepicker"
+                          type="date"
+                          placeholder="DD-MM-YYYY"
+                          formControlName="dob"
+                        />
+                        <p
+                        style="color: red; font-size: 11px;"
+                        *ngIf="
+                          CreateStudentForm.controls['dob'].hasError(
+                            'required'
+                          )
+                        "
+                      >
+                      Date of birth is required
+                      </p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                      <div class="form-group local-forms">
+                        <label>Phone Number </label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          placeholder="Enter  Phone Number"
+                          formControlName="phoneno"
+                        />
+                        <p
+                        style="color: red; font-size: 11px;"
+                        *ngIf="
+                          CreateStudentForm.controls['phoneno'].hasError(
+                            'required'
+                          )
+                        "
+                      >
+                     Phone number is required
+                      </p>
+                
+                      <p style="color: red; font-size: 11px;" *ngIf="CreateStudentForm.controls['phoneno'].hasError('pattern')">
+                        Phone number should be exactly 10 digits
+                      </p>
+                      </div>
+                    </div>
+  
+                    <div class="col-12 col-sm-4">
+                      <div class="form-group local-forms">
+                        <label>Address <span class="login-danger">*</span></label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          placeholder="Enter Address"
+                          formControlName="address"
+                        />
+                        <p
+                        style="color: red; font-size: 11px;"
+                        *ngIf="
+                          CreateStudentForm.controls['address'].hasError(
+                            'required'
+                          )
+                        "
+                      >
+                      Address is required
+                      </p>
+  
+                      <p
+                        style="color: red; font-size: 11px;"
+                        *ngIf="
+                          CreateStudentForm.controls['address'].hasError(
+                            'minlength'
+                          )
+                        "
+                      >
+                      Address should be great than 2
+                      </p>
+                      </div>
+                    </div>
+  
+                    <div class="col-12 col-sm-4">
+                      <div class="form-group students-up-files">
+                        <label>Upload Profile Picture</label>
+                        <div class="uplod">
+                          <input type="file" (change)="UploadStudentImage($event)" required />
+                         
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="col-12">
+                      <div class="student-submit">
+                        <button
+                          type="submit"
+                          class="btn btn-primary"
+                          value="Create"
+                          (click)="CreateStudent()"
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

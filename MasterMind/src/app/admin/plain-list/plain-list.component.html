@@ -1,0 +1,259 @@
+<!-- Page Wrapper -->
+<div id="wrapper">
+    <app-admin-sidebar></app-admin-sidebar>
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <app-admin-header></app-admin-header>
+  
+        <div class="page-wrapper">
+          <div class="container-fluid">
+            <div class="col-sm-12">
+              <h3 style="font-size: 19px; margin-bottom: 20px">
+                Plans /All Plans
+              </h3>
+            </div>
+  
+            
+  
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card card-table comman-shadow">
+                  <div>
+                    <a routerLink="/admin/add-plan" class="btn btn-primary"
+                      ><i class="fas fa-plus"></i
+                    ></a>
+                  </div>
+                </div>
+  
+                <div class="table-responsive">
+                  <!-- <table class="table"> -->
+                    <table class="table" id="example" #dataTable>
+                    <thead>
+                      <tr>
+                        <th class="text-center">#</th>
+                        <th>Plan Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+  
+                        <th class="text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let s of _adminService.plans">
+                        <td class="text-center">{{ s.planid }}</td>
+                        <td>
+                          <img
+                            class="avatar-img rounded-circle"
+                            style="width: 50px; height: 50px; border-radius: 25%"
+                            src="../../../assets/UploadImages/{{s.coverimage }}"
+                            alt="User Image"
+                          />
+                          {{ s.planname }}
+                        </td>
+                        <td style="width: 200px; word-wrap: break-word">
+                          {{ s.plandescription }}
+                        </td>
+  
+                        <td>{{ s.planprice }}</td>
+                        <td>{{ s.startdate | date : "yyyy-MM-dd" }}</td>
+                        <td>{{ s.enddate | date : "yyyy-MM-dd" }}</td>
+  
+                        <td class="td-actions text-right">
+                          <button
+                            type="button"
+                            rel="tooltip"
+                            class="btn btn-info btn-round btn-just-icon btn-sm"
+                            data-original-title=""
+                            title=""
+                          >
+                            <i
+                              class="material-icons fa fa-info-circle"
+                              style="margin-right: 10px; font-size: 20px"
+                            ></i>
+                          </button>
+                          <button
+                           
+                            class="btn btn-success btn-round btn-just-icon btn-sm"
+                         
+                            (click)="OpenUpdateDialog(s)"
+                          >
+                            <i
+                              class="material-icons fas fa-pen"
+                              style="margin-right: 10px"
+                            ></i>
+                          </button>
+  
+                          <button
+                            type="button"
+                            rel="tooltip"
+                            class="btn btn-danger btn-round btn-just-icon btn-sm"
+                            data-original-title=""
+                            title=""
+                            (click)="OpenDeleteStudentDialgo(s.planid)"
+                          >
+                            <i
+                              class="material-icons fa fa-trash"
+                              style="margin-right: 10px"
+                            ></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+  
+                  <ng-template #ConfirmationDialog>
+                    <h1 mat-dialog-title>Delete Plan</h1>
+                    <div mat-dialog-content>
+                      Would you like to delete the Plan?
+                    </div>
+                    <div mat-dialog-actions>
+                      <button
+                        mat-button
+                        mat-dialog-close="yes"
+                        cdkFocusInitial
+                        class="buttCustom"
+                      >
+                        Yes
+                      </button>
+                      <button mat-button mat-dialog-close="no" class="buttCustom">
+                        no
+                      </button>
+                    </div>
+                  </ng-template>
+  
+                  <ng-template #UpdateDialog>
+                    <form [formGroup]="UpdatePlanForm" style="width: 450px">
+                      <!-- Plan Name -->
+                      <div class="example-container">
+                        <mat-form-field style="width: 100%">
+                          <mat-label>Enter Plan Name</mat-label>
+                          <input matInput formControlName="planname" />
+                          <mat-error style="font-size: 15px"
+                          *ngIf="UpdatePlanForm.controls['planname'].hasError('required')"
+                          >Plan Name is required</mat-error
+                        >
+                          <mat-error style="font-size: 15px"
+                          *ngIf="UpdatePlanForm.controls['planname'].hasError('minlength')"
+                          >Plan Name should be great than 5</mat-error
+                        >
+                        </mat-form-field>
+                      </div>
+                  
+                      <!-- Plan Description -->
+                      <div class="example-container">
+                        <mat-form-field style="width: 100%">
+                          <mat-label>Enter Plan Description</mat-label>
+                          <input matInput formControlName="plandescription" />
+                          <mat-error style="font-size: 15px"
+                          *ngIf="UpdatePlanForm.controls['plandescription'].hasError('required')"
+                          >Plan Description is required</mat-error
+                        >
+                          <mat-error style="font-size: 15px"
+                          *ngIf="UpdatePlanForm.controls['plandescription'].hasError('minlength')"
+                          >Plan Description should be great than 10</mat-error
+                        >
+                        </mat-form-field>
+                      </div>
+                  
+                      <!-- Cover Image -->
+                      <div class="example-container">
+                        <mat-form-field style="width: 100%">
+                          <mat-label>Choose Cover Image</mat-label>
+                          <input matInput formControlName="coverimage" />
+                          <mat-error style="font-size: 15px"
+                          *ngIf="UpdatePlanForm.controls['coverimage'].hasError('required')"
+                          >Cover Image is required</mat-error
+                        >      </mat-form-field>
+                      </div>
+                  
+                      <!-- Plan Price -->
+                      <div class="example-container">
+                        <mat-form-field style="width: 100%">
+                          <mat-label>Enter Plan Price</mat-label>
+                          <input
+                            matInput
+                            formControlName="planprice"
+                            type="number"
+                            pattern="[0-9]*"
+                          />
+                          <mat-error style="font-size: 15px"
+                          *ngIf="UpdatePlanForm.controls['planprice'].hasError('required')"
+                          >Plan Price is required</mat-error
+                        >       </mat-form-field>
+                      </div>
+                  
+                      <!-- Start Date -->
+                      <div class="example-container">
+                        <mat-form-field style="width: 100%">
+                          <mat-label>Enter Start Date</mat-label>
+                          <input
+                            matInput
+                            [matDatepicker]="startDatePicker"
+                            formControlName="startdate"
+                          />
+                          <mat-datepicker-toggle
+                            matSuffix
+                            [for]="startDatePicker"
+                          ></mat-datepicker-toggle>
+                          <mat-datepicker #startDatePicker></mat-datepicker>
+                          <mat-error style="font-size: 15px"
+                          *ngIf="UpdatePlanForm.controls['startdate'].hasError('required')"
+                          >Start Date is required</mat-error
+                        >        </mat-form-field>
+                      </div>
+                  
+                      <!-- End Date -->
+                      <div class="example-container">
+                        <mat-form-field style="width: 100%">
+                          <mat-label>Enter End Date</mat-label>
+                          <input
+                            matInput
+                            [matDatepicker]="endDatePicker"
+                            formControlName="enddate"
+                          />
+                          <mat-datepicker-toggle
+                            matSuffix
+                            [for]="endDatePicker"
+                          ></mat-datepicker-toggle>
+                          <mat-datepicker #endDatePicker></mat-datepicker>
+                          <mat-error style="font-size: 15px"
+                          *ngIf="UpdatePlanForm.controls['enddate'].hasError('required')"
+                          >End Date is required</mat-error
+                        >       </mat-form-field>
+                      </div>
+                  
+                      <!-- Update Button -->
+                      <button
+                        [disabled]="UpdatePlanForm.invalid"
+                        mat-dialog-close
+                        (click)="UpdatePlan()"
+                        mat-raised-button
+                        color="accent"
+                        style="
+                          width: 100%;
+                          height: 50px;
+                          padding: 15px;
+                          background-color: #224abe;
+                          color: white;
+                        "
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </ng-template>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

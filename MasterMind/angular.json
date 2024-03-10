@@ -1,0 +1,171 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "MasterMind": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/master-mind",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/lib/animate/animate.min.css",
+              "src/assets/lib/owlcarousel/assets/owl.carousel.min.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/style.css",
+              "src/assets/AdminTemp/vendor/fontawesome-free/css/all.min.css",
+              "src/assets/AdminTemp/css/sb-admin-2.min.css",
+              "src/assets/loginTemp/fonts/icomoon/style.css",
+              "src/assets/loginTemp/css/owl.carousel.min.css",
+              "src/assets/loginTemp/css/bootstrap.min.css",
+              "src/assets/loginTemp/css/style.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
+              "node_modules/ngx-toastr/toastr.css"
+
+            ],
+            "scripts": [
+              "src/assets/lib/wow/wow.min.js",
+              "src/assets/lib/easing/easing.min.js",
+              "src/assets/lib/waypoints/waypoints.min.js",
+              "src/assets/lib/owlcarousel/owl.carousel.min.js",
+              "src/assets/js/main.js",
+              "src/assets/AdminTemp/vendor/jquery/jquery.min.js",
+              "src/assets/AdminTemp/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/AdminTemp/vendor/jquery-easing/jquery.easing.min.js",
+              "src/assets/AdminTemp/vendor/chart.js/Chart.min.js",
+              "src/assets/AdminTemp/js/sb-admin-2.min.js",
+              "src/assets/AdminTemp/js/demo/chart-area-demo.js",
+              "src/assets/AdminTemp/js/demo/chart-pie-demo.js",
+              "src/assets/HelpingAssets/js/jquery-3.6.0.min.js",
+              "src/assets/HelpingAssets/js/feather.min.js",
+              "src/assets/HelpingAssets/plugins/slimscroll/jquery.slimscroll.min.js",
+              "src/assets/HelpingAssets/plugins/datatables/datatables.min.js",
+              "src/assets/HelpingAssets/js/script.js",
+              "src/assets/loginTemp/js/jquery-3.3.1.min.js",
+              "src/assets/loginTemp/js/popper.min.js",
+              "src/assets/loginTemp/js/bootstrap.min.js",
+              "src/assets/loginTemp/js/main.js"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "MasterMind:build:production"
+            },
+            "development": {
+              "browserTarget": "MasterMind:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "MasterMind:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/lib/animate/animate.min.css",
+              "src/assets/lib/owlcarousel/assets/owl.carousel.min.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/style.css",
+              "src/assets/AdminTemp/vendor/fontawesome-free/css/all.min.css",
+              "src/assets/AdminTemp/css/sb-admin-2.min.css",
+              "src/assets/loginTemp/fonts/icomoon/style.css",
+              "src/assets/loginTemp/css/owl.carousel.min.css",
+              "src/assets/loginTemp/css/bootstrap.min.css",
+              "src/assets/loginTemp/css/style.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
+              "node_modules/ngx-toastr/toastr.css"
+
+            ],
+            "scripts": [
+              "src/assets/lib/wow/wow.min.js",
+              "src/assets/lib/easing/easing.min.js",
+              "src/assets/lib/waypoints/waypoints.min.js",
+              "src/assets/lib/owlcarousel/owl.carousel.min.js",
+              "src/assets/js/main.js",
+              "src/assets/AdminTemp/vendor/jquery/jquery.min.js",
+              "src/assets/AdminTemp/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/AdminTemp/vendor/jquery-easing/jquery.easing.min.js",
+              "src/assets/AdminTemp/vendor/chart.js/Chart.min.js",
+              "src/assets/AdminTemp/js/sb-admin-2.min.js",
+              "src/assets/AdminTemp/js/demo/chart-area-demo.js",
+              "src/assets/AdminTemp/js/demo/chart-pie-demo.js",
+              "src/assets/HelpingAssets/js/jquery-3.6.0.min.js",
+              "src/assets/HelpingAssets/js/feather.min.js",
+              "src/assets/HelpingAssets/plugins/slimscroll/jquery.slimscroll.min.js",
+              "src/assets/HelpingAssets/plugins/datatables/datatables.min.js",
+              "src/assets/HelpingAssets/js/script.js",
+              "src/assets/loginTemp/js/jquery-3.3.1.min.js",
+              "src/assets/loginTemp/js/popper.min.js",
+              "src/assets/loginTemp/js/bootstrap.min.js",
+              "src/assets/loginTemp/js/main.js"]
+            
+          }
+        }
+      }
+    }
+  }
+}
